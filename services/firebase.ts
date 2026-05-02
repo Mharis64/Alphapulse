@@ -7,12 +7,13 @@ import { SentimentResult, WatchlistItem } from '../types';
 
 // ⬇️ REPLACE ALL VALUES — Firebase Console → Project Settings → Your apps
 const firebaseConfig = {
-  apiKey:            'YOUR_API_KEY',
-  authDomain:        'YOUR_PROJECT_ID.firebaseapp.com',
-  projectId:         'YOUR_PROJECT_ID',
-  storageBucket:     'YOUR_PROJECT_ID.appspot.com',
-  messagingSenderId: 'YOUR_SENDER_ID',
-  appId:             'YOUR_APP_ID',
+  apiKey: "AIzaSyDzmMck77tKt8WVJJzPIauzb9yATyYY9Hk",
+  authDomain: "alphapulse-73157.firebaseapp.com",
+  projectId: "alphapulse-73157",
+  storageBucket: "alphapulse-73157.firebasestorage.app",
+  messagingSenderId: "865907432510",
+  appId: "1:865907432510:web:5073e7c9d709afa76d056f",
+  measurementId: "G-PEG391QPHQ"
 };
 
 let app: FirebaseApp;
