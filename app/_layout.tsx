@@ -1,24 +1,31 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+import { SentimentProvider } from '../hooks/useSentimentStore';
+import { initFirebase } from '../services/firebase';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  useEffect(() => {
+    initFirebase();
+  }, []);
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <SentimentProvider>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+        <Stack.Screen
+          name="asset-detail"
+          options={{
+            headerShown: true,
+            title: 'Asset Detail',
+            headerBackTitle: 'Back',
+            headerStyle: { backgroundColor: '#F8F7F4' },
+            headerTitleStyle: { fontSize: 16, fontWeight: '600', color: '#1A1917' },
+            headerShadowVisible: false,
+          }}
+        />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+      <StatusBar style="dark" />
+    </SentimentProvider>
   );
 }
